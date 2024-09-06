@@ -1,0 +1,33 @@
+Answer
+Here are the SQL queries to retrieve the requested data from the given dataset:
+Q1: Delete records with rating < 5.0 and count remaining movies
+sql
+DELETE FROM MoviesDataset WHERE Rating < 5.0;
+SELECT COUNT(*) FROM MoviesDataset;
+
+Q2: Count unique movie genres
+sql
+SELECT COUNT(DISTINCT main_genre) + COUNT(DISTINCT side_genre) AS unique_genres
+FROM MoviesDataset;
+
+Q3: Average runtime for movies with rating between 8 and 9
+sql
+SELECT AVG(Runtime_Mins) AS avg_runtime
+FROM MoviesDataset
+WHERE Rating BETWEEN 8 AND 9;
+
+Q4: Gross income of top 5 movies from 2000
+sql
+SELECT GROUP_CONCAT(Total_Gross ORDER BY Total_Gross DESC SEPARATOR ', ') AS top_5_gross
+FROM MoviesDataset
+WHERE Year = 2000 AND Total_Gross != 'Gross Unknown'
+LIMIT 5;
+
+Q5: Movies with both Chris Evans and Robert Downey Jr.
+sql
+SELECT Movie_Title
+FROM MoviesDataset
+WHERE Actors LIKE '%Chris Evans%'
+  AND Actors LIKE '%Robert Downey Jr.%';
+
+These SQL queries assume that the CSV file has been imported into a table named MoviesDataset with columns matching the CSV headers. The queries address each of the specific questions asked about the movie dataset
