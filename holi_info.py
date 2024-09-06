@@ -41,7 +41,7 @@ else:
 total_holidays = count_holidays(canadian_holidays)
 print(f"No. of public holidays in Canada - 2017: {total_holidays}")
 
-# Q3: Number of public holidays in Canada for 2017 that are NOT holidays in CA-BC county
+# Q3: Number of public holidays in Canada for 2017 that are not holidays in CA-BC county
 
 holidays_not_in_county = count_holidays_not_in_county(canadian_holidays, 'CA-BC')
 print(f"Number of public holidays in Canada in 2017, NOT holidays in CA-BC county: {holidays_not_in_county}")
